@@ -1,5 +1,10 @@
 import numpy as np
 
+"""
+Basic implementation of a Perceptron model, for the only purpose of testing,
+I'm going to use the skilearn implentation indeed 
+"""
+
 class Perceptron():
     '''
     Perceptron classifier
@@ -9,16 +14,16 @@ class Perceptron():
     eta : float
         Learning rate (between 0.0 and 1.0)
     n_iter : int
-        Passes over trainig datase
+        Passes over training dataset
     random_state: int
-        Random number generator seed for random weigth initialization
+        Random number generator seed for random weight initialization
 
     Attributes
     ---------------
     w_ : 1d-array
-        Weigths after fitting
+        Weights after fitting
     errors_ : list
-        Number of misclassifications (updates) in each epoch
+        Number of misclassifications(updates) in each epoch
     '''
 
     def __init__(self, eta=0.01, n_iter=50, random_state=1):
@@ -33,7 +38,7 @@ class Perceptron():
         Parameters
         ---------------
         X : {array-like}, shape = [n_samples, n_features]
-            Trainig vectors, where n_samples is the number of samples and n_features is the number of
+            Training vectors, where n_samples is the number of samples and n_features is the number of
             features
         y : array-like, shape = [n_samples]
 
