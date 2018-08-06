@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 from Plotting.Decision_Region import plot_decision_region
+from Model.Adaline import AdalineGD
 
 df = pd.read_csv('iris.data', header=None)
 
@@ -36,6 +37,18 @@ from sklearn.linear_model import Perceptron
 ppn = Perceptron(n_iter=40, eta0=0.1, random_state=1)
 ppn.fit(X_train_std, y_train)
 
+# LOGISTIC REGRESSION
+
+from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression(C=100.0, random_state=1)
+lr.fit(X_train_std, y_train)
+
+# PREDICTION PROBABILITY
+
+predict_proba = lr.predict_proba(X_test_std[:3, :]).argmax(axis=1)
+print predict_proba
+
 # PREDICTION - ACCURACY
 
 from sklearn.metrics import accuracy_score
@@ -47,4 +60,9 @@ print ac
 
 # PLOTTING DECISION REGION
 
-plot_decision_region(X_train_std, y_train, classifier=ppn)
+# plot_decision_region(X_train_std, y_train, classifier=ppn)
+
+# ADALINE
+
+ad = AdalineGD(n_iter=10, eta=0.01).fit(X, y)
+
