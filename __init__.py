@@ -3,6 +3,7 @@ import numpy as np
 
 from Plotting.Decision_Region import plot_decision_region
 from Model.Adaline import AdalineGD
+from Model.AdalineSGD import AdalineSGD
 
 df = pd.read_csv('iris.data', header=None)
 
@@ -64,5 +65,5 @@ print ac
 
 # ADALINE
 
-ad = AdalineGD(n_iter=10, eta=0.01).fit(X, y)
+ad = AdalineSGD(n_iter=10, eta=0.01).fit(X, y)
 

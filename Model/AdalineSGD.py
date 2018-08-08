@@ -5,7 +5,7 @@ Basic implementation of a Perceptron model, for the only purpose of testing,
 I'm going to use the skilearn implentation indeed 
 """
 
-class AdalineGD():
+class AdalineSGD():
     '''
     Perceptron classifier
 
@@ -63,7 +63,7 @@ class AdalineGD():
         return self
 
     def partial_fit(self, X, y):
-        """Fit trainig data without reinitializing the weights"""
+        """Fit training data without reinitializing the weights"""
         if not self.w_initialized:
             self._initialized_weights(X.shape[1])
         if y.ravel().shape[0] > 1:
@@ -97,8 +97,8 @@ class AdalineGD():
 
     def _initialized_weights(self, m):
         """Initialize weights to small random number"""
-        rgen = np.random.RandomState(self.random_state)
-        self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1 + m)
+        self.rgen = np.random.RandomState(self.random_state)
+        self.w_ = self.rgen.normal(loc=0.0, scale=0.01, size=1 + m)
 
         self.w_initialized = True
 
